@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ProductCart>
+@using CompanyManager.Controllers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Carrito</h1>
+
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.getTotalPrice()</td>
+                    <td>
+                        <a asp-action="DeleteProductInCart" asp-route-id="@item.ProductId" class="text-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="text-end">
+        <a asp-action="Index" class="btn btn-danger text-decoration-none">
+            <i class="fa-solid fa-cart-shopping"></i> Seguir Comprando
+        </a>
+        @if (StoreController.ViewCartItems() > 0)
+        {
+            <a asp-action="Payment" class="btn btn-success">
+                <i class="fa-solid fa-money-bill"></i> Confirmar compra
+            </a>
+        }
+    </div>
+</div>

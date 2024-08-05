@@ -1,0 +1,30 @@
+﻿@model CompanyManager.Models.Sale
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Estás seguro de eliminar la venta #@Html.DisplayFor(model => model.Id) , una vez eliminado no se podrá recuperar?</h3>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SaleDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SaleDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="text-danger">Volver</a>
+    </form>
+</div>

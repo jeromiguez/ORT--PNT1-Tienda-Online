@@ -1,0 +1,46 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.move-left {
+  margin-left: -70px;
+}
+
+/* override boostrap styles */
+.fs-4 {
+    font-size: 20px !important;
+}
+
+.fs-5 {
+    font-size: 14px !important;
+}
+
+.fs-6 {
+    font-size: 12px !important;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.form-container {
+    padding: 0px 16px;
+    margin: auto;
+    max-width: 500px;
+    width: 100%;
+}
